@@ -1,0 +1,27 @@
+<!-- *ngFor="let type of pokemons.types" class="card color-white {{'bg-color-' + getPrincipalType(pokemons.types)}}" -->
+<div class="card cursor-pointer" (click)="onPokemonClick()">
+  <div class="profile-pic color-white {{'border-' + getPrincipalBorderClass(pokemons.types)}}">
+    <img [src]="getPokemonImageURL(pokemons)" alt="" (error)="handleImageError($event)">
+    <!-- <img [src]="'https://img.pokemondb.net/sprites/home/normal/2x/'+ pokemons.name +'.jpg'" alt=""> -->
+  </div>
+  <div class="bottom color-white {{'bg-color-' + getPrincipalBorderClass(pokemons.types)}}">
+      <div class="content">
+          <span class="about-me">
+            <div class="types-container" *ngFor="let type of pokemons.types">
+              <span class="nameType mt-2">{{ type.type.name }}</span>
+              <img class="iconType color-white {{'bg-color-' + type.type.name }}" [src]="'https://pokedex.hybridshivam.com/assets/type-icons/png/'+ type.type.name + '.png'" alt="not found">
+            </div>
+            <div class="atributes">
+              <span class=""><strong>Height: </strong>{{ heigthPokemon() }}</span>
+              <span class=""><strong>Weight: </strong>{{ pokemons.weight / 10}} Kg</span>
+            </div>
+          </span>
+      </div>
+     <div class="bottom-bottom">
+      <div class="info-poke-container">
+        <span class="name font-bold text-right" [ngStyle]="{ 'font-size': sizeNamePokemon(pokemons.name) }">{{ replaceName(pokemons.name) }}</span>
+        <span class="idPoke pt-1 font-bold text-right">No. {{ pokemons.id }}</span>
+      </div>
+     </div>
+  </div>
+</div>

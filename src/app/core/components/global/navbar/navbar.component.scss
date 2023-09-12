@@ -1,0 +1,112 @@
+$font-size: 20px;
+$frame-color: #000000;
+$size: 2.5em;
+$open-width: 18em;
+$open-padding: 0.3em 2.1em 0.3em 0.4em;
+$frame-thickness: 0.3em;
+$handle-height: 1.4em;
+$open-trans-time: 800ms;
+$close-trans-time: 150ms;
+
+.content{
+  background: url("https://fondosmil.com/fondo/14726.jpg");
+  z-index: 1;
+}
+
+.nav{
+  height: 100px;
+  backdrop-filter: blur(16px);
+  z-index: 2;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  width: 100%;
+  align-items: center;
+  text-transform: uppercase;
+  padding-top: 10px;
+}
+
+.search-box {
+	font-size: $font-size;
+  box-shadow: white 0 0 5px 0;
+	border: solid $frame-thickness $frame-color;
+	display: inline-block;
+	position: relative;
+	border-radius: $size;
+  margin-top: 20px;
+  flex: 1;
+	.searchInput {
+		font-family: inherit;
+		font-weight: bold;
+		width: $size;
+		height: $size;
+		padding: $open-padding;
+		border: none;
+		box-sizing: border-box;
+		border-radius: $size;
+		transition:
+			width $open-trans-time cubic-bezier(0.68, -0.55, 0.27, 1.55) $close-trans-time;
+		&:focus {
+			outline: none;
+		}
+		&:focus, &:not(:placeholder-shown) {
+			width: $open-width;
+			transition: width $open-trans-time cubic-bezier(0.68, -0.55, 0.27, 1.55);
+			+ .searchReset {
+				transform: rotate(-45deg) translateY(0);
+				transition:
+					transform $close-trans-time ease-out $open-trans-time;
+			}
+			+ .searchReset:after {
+				opacity: 1;
+				transition:
+					top $close-trans-time ease-out ($open-trans-time + $close-trans-time),
+					right $close-trans-time ease-out ($open-trans-time + $close-trans-time),
+					opacity $close-trans-time ease ($open-trans-time + $close-trans-time);
+			}
+		}
+	}
+
+	.searchReset {
+		background-color: transparent;
+		width: $handle-height;
+		height: $handle-height;
+		border: 0;
+		padding: 0;
+		outline: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: calc($handle-height / 2);
+		right: calc($handle-height / 2);
+		transform: rotate(-45deg) translateY($size - $frame-thickness);
+		transition:
+			transform $close-trans-time ease-out $close-trans-time;
+		&:before, &:after {
+			content: "";
+			background-color: $frame-color;
+			width: $frame-thickness;
+			height: $handle-height;
+			position: absolute;
+      box-shadow: white 0 0 5px 0;
+		}
+		&:after {
+			transform: rotate(90deg);
+			opacity: 0;
+			transition:
+				transform $close-trans-time ease-out,
+				opacity $close-trans-time ease-out;
+		}
+	}
+}
+
+.iconBack{
+  border: 2px border #0000;
+}
+
+.iconBack:hover{
+  box-shadow: white 0 0 5px 0;
+}

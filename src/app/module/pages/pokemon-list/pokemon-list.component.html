@@ -1,0 +1,9 @@
+<div class="content">
+  <app-navbar></app-navbar>
+  <div class="pokemons">
+    <app-cards-pokemons *ngFor="let poke of pokemons; let i  = index " [pokemons]="poke"></app-cards-pokemons>
+  </div>
+  <p-paginator (onPageChange)="onPageChange($event)" [first]="(currentPage - 1) * itemsPerPage" [rows]="itemsPerPage"
+    [totalRecords]="pokemonTotal" [hidden]="hidePagination">
+  </p-paginator>
+</div>

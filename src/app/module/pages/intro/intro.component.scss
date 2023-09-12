@@ -1,0 +1,126 @@
+.content{
+  background-image: url("/assets/img/body-back.webp");
+  background-size: cover;
+  height: 100vh;
+}
+.logoPokedex{
+  display: flex;
+  justify-content: center;
+}
+.imgPokedex{
+  width: 800px;
+}
+.card{
+  display: flex;
+  justify-content: space-evenly;
+}
+.buttonStart{
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}
+.bookmarkBtn {
+  width: 300px;
+  height: 80px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.349);
+  background-color: rgb(12, 12, 12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: .3s;
+  overflow: hidden;
+  padding: 0px;
+}
+
+.IconContainer {
+  width: 130px;
+  height: 130px;
+  background: white;
+  border-radius: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+  transition-duration: .3s;
+}
+
+.icon {
+  border-radius: 10px;
+}
+.imgButton{
+  width: 180px;
+}
+
+.text {
+  height: 100%;
+  width: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 1;
+  transition-duration: .3s;
+  font-size: 1.04em;
+}
+
+.bookmarkBtn:hover .IconContainer {
+  width: 300px;
+  border-radius: 40px;
+  transition-duration: .3s;
+}
+
+.bookmarkBtn:hover .text {
+  transform: translate(10px);
+  width: 0;
+  font-size: 0;
+  transition-duration: .3s;
+}
+
+.bookmarkBtn:active {
+  transform: scale(0.95);
+  transition-duration: .3s;
+}
+
+@media (max-width: 768px) {
+  .content {
+    height: auto; /* Ajusta la altura automáticamente */
+  }
+  .logoPokedex{
+    display: flex;
+    justify-content: center;
+    margin-right: 10%;
+    margin-left: 10%;
+  }
+  .imgPokedex{
+    width: 100%;
+  }
+  .card {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+  }
+  .bookmarkBtn {
+    width: 90px;
+    height: 40px;
+
+  }
+}
+@media (max-width: 1023px) {
+  .content {
+    height: 100%;
+    width: 100%;
+  }
+  .logoPokedex{
+    display: flex;
+    justify-content: center;
+    margin-right: 10%;
+    margin-left: 10%;
+  }
+  .imgPokedex{
+    width: 100%;
+  }
+}

@@ -1,0 +1,6 @@
+.pokemons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Se ajustará automáticamente a medida que haya espacio */
+  gap: 20px; /* Espacio entre los elementos */
+  margin: 100px; /* Ajusta el margen según tus necesidades */
+}

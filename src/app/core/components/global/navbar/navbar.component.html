@@ -1,0 +1,17 @@
+<div class="content">
+  <nav class="nav">
+    <ul class="nav-links">
+      <li>
+        <i class="pi pi-angle-left mt-4 mr-3 cursor-pointer iconBack" style="font-size: 2rem; color: white;" (click)="introPage()"></i>
+      </li>
+      <li>
+        <form (input)="onSearch()" class="search-box">
+          <input type="text" [(ngModel)]="searchValue" name="searchInput" class="searchInput" placeholder=" ">
+          <button type="reset" class="searchReset" (click)="resetSearch()"></button>
+        </form>
+      </li>
+      <li><img class="mt-2 ml-5" src="/assets/img/Logo_Pokédex.webp" alt=""></li>
+    </ul>
+  </nav>
+</div>
+
