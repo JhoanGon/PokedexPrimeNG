@@ -18,6 +18,7 @@ export class PokemonDetailComponent implements OnInit {
   idChain: number = 0;
   evolutionPokemonData: any = "";
   evolutionPokemon: any = "";
+  sizeEvolution: string = "";
 
   constructor(
     private route: ActivatedRoute,
@@ -97,6 +98,7 @@ export class PokemonDetailComponent implements OnInit {
             next: (data) => {
               this.evolutionPokemonData = data;
               this.evolutionPokemon = this.getDataEvolution(this.evolutionPokemonData.chain);
+              this.sizeEvolution = `repeat(${this.evolutionPokemon.length}, minmax(250px, 1fr))`;
             }
           });
         }).catch((error) => {

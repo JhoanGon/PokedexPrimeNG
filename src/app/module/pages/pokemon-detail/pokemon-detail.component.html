@@ -8,11 +8,11 @@
   <div class=" imgFull flex justify-content-center">
     <img [src]="getPokemonImageURL(pokemonId)" alt="" (error)="handleImageError($event)">
   </div>
-  <div class="flex justify-content-evenly">
+  <div class="flex justify-content-evenly gap-3">
     <p-button (click)="toggleShiny()">Cambiar a {{ swicthShiny ? 'Regular' : 'Shiny' }}</p-button>
     <p-button (click)="toggle3D()">Cambiar a {{ swicth3D ? 'Normal' : '3D' }}</p-button>
   </div>
-  <div class="pokemon-container">
+  <div class="pokemon-container" [style.grid-template-columns]="sizeEvolution">
     <div *ngFor="let poke of evolutionPokemon" class="pokemon-wrapper">
       <div class="pokemons {{'borderDetail-'+ getPrincipalBorderClass(pokemons.types)}}">
         <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/'+ poke.id+ '.png'" alt="">
