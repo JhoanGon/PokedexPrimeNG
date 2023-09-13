@@ -4,3 +4,15 @@
   gap: 20px; /* Espacio entre los elementos */
   margin: 100px; /* Ajusta el margen según tus necesidades */
 }
+@media (max-width: 768px) {
+  .pokemons{
+    justify-items: center;
+    justify-content: center;
+  }
+}
+@media (max-width: 1023px) {
+  .pokemons{
+    justify-items: center;
+    justify-content: center;
+  }
+}

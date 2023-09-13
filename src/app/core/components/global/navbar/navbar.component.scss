@@ -110,3 +110,18 @@ $close-trans-time: 150ms;
 .iconBack:hover{
   box-shadow: white 0 0 5px 0;
 }
+
+@media (max-width: 768px) {
+  .content{
+    height: auto;
+    padding-bottom: 10px;
+  }
+
+  .imgPokedex{
+    //width: 65%;
+    display: none;
+  }
+}
+@media (max-width: 1023px) {
+
+}

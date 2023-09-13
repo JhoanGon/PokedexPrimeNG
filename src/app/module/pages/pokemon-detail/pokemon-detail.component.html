@@ -1,7 +1,9 @@
 <div class="content">
-  <i class="pi pi-angle-left mt-6 mr-3 ml-8 cursor-pointer iconBack" style="font-size: 2rem; color: white;" (click)="introPage()"></i>
   <div>
-    <h1 class="pokeName">{{ pokemons.name }}</h1><br />
+    <ul class="headPokemon">
+      <li class="listDetail"><span class="pi pi-angle-left mt-6 mr-3 ml-8 cursor-pointer iconBack" style="font-size: 2rem; color: white;" (click)="introPage()"></span></li>
+      <li class="listDetail"><h1 class="pokeName">{{ pokemons.name }}</h1><br /></li>
+    </ul>
   </div>
   <div class=" imgFull flex justify-content-center">
     <img [src]="getPokemonImageURL(pokemonId)" alt="" (error)="handleImageError($event)">
