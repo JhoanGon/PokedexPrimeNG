@@ -75,5 +75,15 @@ $general: ('black', $black), ('white', $white), ('grass', $grass), ('grass-light
 body{
   background: url("https://images8.alphacoders.com/548/548142.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
   height: 100vh;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
