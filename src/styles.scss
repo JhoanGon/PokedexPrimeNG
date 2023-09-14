@@ -72,6 +72,7 @@ $general: ('black', $black), ('white', $white), ('grass', $grass), ('grass-light
   margin: 0;
   font-family: "Flexo-Medium",arial,sans-serif;
 }
+
 body{
   background: url("https://images8.alphacoders.com/548/548142.jpg");
   background-size: cover;
@@ -86,4 +87,24 @@ body{
   left: 0;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+  body{
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    background-position: center;
+    height: 100vh;
+  }
+}
+@media (max-width: 1023px) {
+  body{
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    height: 100vh;
+  }
 }
