@@ -121,6 +121,15 @@ $close-trans-time: 150ms;
     //width: 65%;
     display: none;
   }
+  .nav{
+    height: 60px;
+  }
+  .search-box{
+    margin-top: 10px;
+  }
+  .nav-links{
+    padding-top: 0px;
+  }
 }
 @media (max-width: 1023px) {
 

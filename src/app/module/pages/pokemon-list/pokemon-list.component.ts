@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subscription, forkJoin } from 'rxjs';
+import { Observable, Subscription, debounceTime, forkJoin } from 'rxjs';
 import { PokemonDetail } from 'src/app/core/models/class/PokemonDetail';
 import { PokemonList } from 'src/app/core/models/class/PokemonList';
 import { PokemonService } from 'src/app/core/services/pokemon-services/pokemon.service';
@@ -21,6 +21,7 @@ export class PokemonListComponent implements OnInit {
   itemsPerPage: number = 15;
   pokemonTotal: number;
   hidePagination: boolean;
+
 
   evolutionPokemonData: any = "";
   evolutionPokemon: any = "";
@@ -50,7 +51,7 @@ export class PokemonListComponent implements OnInit {
   }
 
   getPokemonList(): void {
-    this.searchService.filteredPokemons$.subscribe(value => {
+    this.searchService.filteredPokemons$.pipe(debounceTime(600)).subscribe(value => {
       if (value.toString() !== '') {
         const searchTerm = value.toString().replace(' ','-');
         this.loadFilteredPokemon(searchTerm);
@@ -70,7 +71,8 @@ export class PokemonListComponent implements OnInit {
   }
 
   loadNextBatch(): void {
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    let startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    if(startIndex == 1005){ startIndex = 995 }
     this.pokemonService.getPokemonList(startIndex, this.itemsPerPage).subscribe(pokemonList => {
       this.list = pokemonList;
       this.getPokemon(this.list);

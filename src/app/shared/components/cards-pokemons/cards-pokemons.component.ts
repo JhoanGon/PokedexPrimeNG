@@ -12,7 +12,8 @@ export class CardsPokemonsComponent {
 
   constructor(
     private readonly router: Router
-  ){}
+  ){
+  }
 
   getPrincipalBorderClass(list: any[]) {
     const primaryType = list.filter((x) => x.slot === 1 )[0]?.type.name;

@@ -17,7 +17,7 @@ export class PokemonService {
     constructor(private http: HttpClient) { }
 
 
-    getPokemonList(offset: number, limit: number = 1000) : Observable<PokemonList[]> {
+    getPokemonList(offset: number, limit: number = 1010) : Observable<PokemonList[]> {
       return this.http.get<PokemonList[]>(this.baseUrl + 'pokemon?limit=' + limit + '&offset=' + offset)
         .pipe(
             map((x: any) => x.results)
@@ -33,21 +33,21 @@ export class PokemonService {
     }
 
     getAllPokemonSize(): Observable<number> {
-      return this.http.get<any>(this.baseUrl + 'pokemon?limit=10271')
+      return this.http.get<any>(this.baseUrl + 'pokemon?limit=1010')
         .pipe(
           map((response: any) => response.results.length)
         );
     }
 
     getPokemonListName(): Observable<string[]> {
-      return this.http.get<any>(this.baseUrl + 'pokemon?limit=905')
+      return this.http.get<any>(this.baseUrl + 'pokemon?limit=1010')
         .pipe(
           map((response: any) => response.results.map((pokemon: any) => pokemon.name))
         );
     }
 
     getPokemonByNamePartial(partialName: string): Observable<PokemonDetail[]> {
-      return this.http.get<any>(this.baseUrl + 'pokemon?limit=10271')
+      return this.http.get<any>(this.baseUrl + 'pokemon?limit=1010')
         .pipe(
           map((response: any) => response.results.filter((pokemon: any) =>
             pokemon.name.includes(partialName.toLowerCase()))

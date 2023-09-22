@@ -1,7 +1,7 @@
 <!-- *ngFor="let type of pokemons.types" class="card color-white {{'bg-color-' + getPrincipalType(pokemons.types)}}" -->
 <div class="card cursor-pointer" (click)="onPokemonClick()">
   <div class="profile-pic color-white {{'border-' + getPrincipalBorderClass(pokemons.types)}}">
-    <img [src]="getPokemonImageURL(pokemons)" alt="" (error)="handleImageError($event)">
+    <img [src]="getPokemonImageURL(pokemons)" alt="" (error)="handleImageError($event)" loading="lazy">
     <!-- <img [src]="'https://img.pokemondb.net/sprites/home/normal/2x/'+ pokemons.name +'.jpg'" alt=""> -->
   </div>
   <div class="bottom color-white {{'bg-color-' + getPrincipalBorderClass(pokemons.types)}}">

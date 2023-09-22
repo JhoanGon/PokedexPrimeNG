@@ -9,6 +9,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { PaginatorModule } from 'primeng/paginator';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ButtonModule } from 'primeng/button';
     InfiniteScrollModule,
     PaginatorModule,
     TableModule,
-    ButtonModule
+    ButtonModule,
+    ScrollingModule
     ],
   exports:[
     FormsModule,
@@ -33,7 +35,8 @@ import { ButtonModule } from 'primeng/button';
     InfiniteScrollModule,
     PaginatorModule,
     TableModule,
-    ButtonModule
+    ButtonModule,
+    ScrollingModule
   ]
 })
 export class SharedModule { }

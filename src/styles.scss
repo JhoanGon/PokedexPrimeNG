@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-$grass: #3E9709;
+$grass: #59ac2a;
 $grass-light: #7EB95B;
-$fire: #FC0C0B;
+$fire: #f14b4b;
 $fire-light: #FD5D5C;
 $water: #0A7ABC;
 $water-light: #5BA6D2;
@@ -11,7 +11,7 @@ $flying: #5EB9B2;
 $flying-light: #93D0CB;
 $bug: #91BA2E;
 $bug-light: #BDDD6E;
-$poison: #A819D7;
+$poison: #ba3ee4;
 $poison-light: #C565E4;
 $electric: #c9c61a;
 $electric-light: #f1ec47;
@@ -38,6 +38,7 @@ $fairy-light: #FDD1E0;
 $gray-light: #d8d8d8;
 $gray-dark: #606060;
 $gray: #b6b6b6;
+$gray-light: #d4d4d4;
 
 $transparent: transparent;
 $black: #000000;
@@ -45,7 +46,7 @@ $white: #ffffff;
 
 $borderWidth: 7px;
 
-$general: ('black', $black), ('white', $white), ('grass', $grass), ('grass-light', $grass-light), ('fire', $fire), ('fire-light', $fire-light), ('water', $water), ('water-light', $water-light), ('normal', $normal), ('normal-light', $normal-light), ('flying', $flying), ('flying-light', $flying-light), ('bug', $bug) , ('bug-light', $bug-light) , ('poison', $poison), ('poison-light', $poison-light), ('electric', $electric), ('electric-light', $electric-light), ('ground', $ground) , ('ground-light', $ground-light) , ('fighting', $fighting) , ('fighting-light',$fighting-light) , ('psychic', $psychic) , ('psychic-light', $psychic-light) , ('rock', $rock) , ('rock-light', $rock-light) , ('ice' , $ice) , ('ice-light' , $ice-light) , ('ghost', $ghost) , ('ghost-light',$ghost-light) , ('dragon',$dragon) , ('dragon-light',$dragon-light) , ('dark',$dark) , ('dark-light',$dark-light) , ('steel',$steel) , ('steel-light',$steel-light) , ('fairy',$fairy) , ('fairy-light' , $fairy-light) , ('gray', $gray), ('borderWidth', $borderWidth);
+$general:('gray-light',$gray-light), ('black', $black), ('white', $white), ('grass', $grass), ('grass-light', $grass-light), ('fire', $fire), ('fire-light', $fire-light), ('water', $water), ('water-light', $water-light), ('normal', $normal), ('normal-light', $normal-light), ('flying', $flying), ('flying-light', $flying-light), ('bug', $bug) , ('bug-light', $bug-light) , ('poison', $poison), ('poison-light', $poison-light), ('electric', $electric), ('electric-light', $electric-light), ('ground', $ground) , ('ground-light', $ground-light) , ('fighting', $fighting) , ('fighting-light',$fighting-light) , ('psychic', $psychic) , ('psychic-light', $psychic-light) , ('rock', $rock) , ('rock-light', $rock-light) , ('ice' , $ice) , ('ice-light' , $ice-light) , ('ghost', $ghost) , ('ghost-light',$ghost-light) , ('dragon',$dragon) , ('dragon-light',$dragon-light) , ('dark',$dark) , ('dark-light',$dark-light) , ('steel',$steel) , ('steel-light',$steel-light) , ('fairy',$fairy) , ('fairy-light' , $fairy-light) , ('gray', $gray), ('borderWidth', $borderWidth);
 
 @each $color in $general {
   $name: nth($color, 1);
@@ -74,19 +75,11 @@ $general: ('black', $black), ('white', $white), ('grass', $grass), ('grass-light
 }
 
 body{
-  background: url("https://images8.alphacoders.com/548/548142.jpg");
+  background: url("assets/img/backPoke-list.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  position: relative;
   height: 100vh;
-}
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 768px) {
@@ -98,6 +91,9 @@ body{
     background-position: center;
     height: 100vh;
   }
+  .overlay {
+    height: 100vh;
+  }
 }
 @media (max-width: 1023px) {
   body{
@@ -105,6 +101,9 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     position: relative;
+    height: 100vh;
+  }
+  .overlay {
     height: 100vh;
   }
 }

@@ -5,12 +5,69 @@
       <li class="listDetail"><h1 class="pokeName">{{ pokemons.name }}</h1><br /></li>
     </ul>
   </div>
-  <div class=" imgFull flex justify-content-center">
-    <img [src]="getPokemonImageURL(pokemonId)" alt="" (error)="handleImageError($event)">
+  <div class="flex justify-content-center">
+    <div class="imgFull flex justify-content-center">
+      <img [src]="getPokemonImageURL(pokemonId)" alt="" (error)="handleImageError($event)">
+    </div>
   </div>
-  <div class="flex justify-content-evenly gap-3">
-    <p-button (click)="toggleShiny()">Cambiar a {{ swicthShiny ? 'Regular' : 'Shiny' }}</p-button>
-    <p-button (click)="toggle3D()">Cambiar a {{ swicth3D ? 'Normal' : '3D' }}</p-button>
+  <div class="gap-3 buttons">
+    <p-button (click)="toggleShiny()">Cambiar a {{ switchShiny ? 'Regular' : 'Shiny' }}</p-button>
+    <p-button (click)="toggle3D()">Cambiar a {{ switch3D ? 'Normal' : '3D' }}</p-button>
+    <p-button *ngIf="idMega" (click)="toggleMega()">Cambiar a {{ switchMega ? 'Normal' : 'Mega' }}</p-button>
+    <p-button *ngIf="idGigant" (click)="toggleGigant()">Cambiar a {{ switchGigant ? 'Normal' : 'Gigant' }}</p-button>
+  </div>
+  <div class="infoContent">
+    <div class="statsTable {{'border-' + getPrincipalBorderClass(pokemons.types)}}">
+      <div class="headerTable mb-4 cursor-pointer">
+        <span class="{{selectedElement === 'Base' ? 'bg-color-' + getPrincipalBorderClass(pokemons.types) : 'bg-color-gray-light'}}" (click)="selectElement('Base')">Base</span>
+        <span class="{{selectedElement === 'Min' ? 'bg-color-' + getPrincipalBorderClass(pokemons.types) : 'bg-color-gray-light'}}" (click)="selectElement('Min')">Min</span>
+        <span class="{{selectedElement === 'Max' ? 'bg-color-' + getPrincipalBorderClass(pokemons.types) : 'bg-color-gray-light'}}" (click)="selectElement('Max')">Max</span>
+      </div>
+      <div class="table">
+        <div *ngFor="let stats of statsPokemons" class="stats-item">
+          <div class="stats-name {{'bg-color-' + getPrincipalBorderClass(pokemons.types)}}">
+            <span>{{ stats.name.replace("-"," ") }}</span>
+          </div>
+          <div class="stats-bar">
+            <span class="charts-css bar {{'bg-color-' + getPrincipalBorderClass(pokemons.types)}}"
+            [attr.data-bar]="stats.stat"
+            [style.width.%]="(stats.stat / maxStat) * 100"><span class="statValue">{{ selectedElement === 'Max' ? stats.stat * 2 + calculateStatMax(): (selectedElement === 'Min' ? stats.stat * 2 + calculateStatMin() : stats.stat) }}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="statsTable {{'border-' + getPrincipalBorderClass(pokemons.types)}}">
+      <div class="table">
+        <div class="infoPokemon">
+          <div class="labelInfo w-3">
+            <div class="{{'bg-color-' + getPrincipalBorderClass(pokemons.types)}}"><span>ID:</span></div>
+            <div class="{{'bg-color-' + getPrincipalBorderClass(pokemons.types)}}"><span>Alto:</span></div>
+            <div class="{{'bg-color-' + getPrincipalBorderClass(pokemons.types)}}"><span>Ancho:</span></div>
+            <div class="{{'bg-color-' + getPrincipalBorderClass(pokemons.types)}}"><span>Habilidades:</span></div>
+            <div class="{{'bg-color-' + getPrincipalBorderClass(pokemons.types)}}"><span>Tipo:</span></div>
+            <div class="{{'bg-color-' + getPrincipalBorderClass(pokemons.types)}}"><span>Formas:</span></div>
+          </div>
+          <div class="valueInfo capitalize w-6">
+            <div><span class="flex justify-content-center border-round-md w-4 {{'bg-color-' + getPrincipalBorderClass(pokemons.types)}}" style="box-shadow: #fff 0px 0px 15px 0px;">{{ pokemons.id }}</span></div>
+            <div><span class="flex justify-content-center border-round-md w-4 {{'bg-color-' + getPrincipalBorderClass(pokemons.types)}}" style="box-shadow: #fff 0px 0px 15px 0px;">{{ pokemons.height }}</span></div>
+            <div><span class="flex justify-content-center border-round-md w-4 {{'bg-color-' + getPrincipalBorderClass(pokemons.types)}}" style="box-shadow: #fff 0px 0px 15px 0px;">{{ pokemons.weight }}</span></div>
+            <div class="types">
+              <span *ngFor="let ability of abilities" class="{{'bg-color-' + getPrincipalBorderClass(pokemons.types)}}">{{ ability }}</span>
+            </div>
+            <div class="types" >
+              <span *ngFor="let typePoke of typePoke" class=" flex justify-content-center align-items-center gap-2 {{'bg-color-' + typePoke }}">
+              <img class="iconType color-white" [src]="'https://pokedex.hybridshivam.com/assets/type-icons/png/'+ typePoke + '.png'" alt="not found">
+              <label> {{typePoke }} </label>
+              </span>
+            </div>
+            <div class="forms flex justify-content-center" *ngFor="let form of forms">
+              <span class="{{'bg-color-' + getPrincipalBorderClass(pokemons.types)}}" style="width: 70%; border-radius: 50px;">{{ form }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="pokemon-container" [style.grid-template-columns]="sizeEvolution">
     <div *ngFor="let poke of evolutionPokemon" class="pokemon-wrapper">
@@ -23,4 +80,5 @@
     </div>
   </div>
 </div>
+
 
