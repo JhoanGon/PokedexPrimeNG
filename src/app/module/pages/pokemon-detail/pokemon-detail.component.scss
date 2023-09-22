@@ -39,6 +39,9 @@
   justify-content: space-between;
 }
 
+.labelInfo{
+  width: 25%;
+}
 
 .labelInfo,
 .valueInfo {
@@ -282,6 +285,12 @@
   }
   .pokemon-name {
     -webkit-text-stroke: 0px black;
+  }
+  .labelInfo{
+    width: 33%;
+  }
+  .valueInfo{
+    font-size: 12px;
   }
 }
 @media (max-width: 1023px) {
