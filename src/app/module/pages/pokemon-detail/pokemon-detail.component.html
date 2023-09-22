@@ -10,8 +10,8 @@
       <img [src]="getPokemonImageURL(pokemonId)" alt="" (error)="handleImageError($event)">
     </div>
   </div>
-  <div class="gap-3 buttons">
-    <p-button (click)="toggleShiny()">Cambiar a {{ switchShiny ? 'Regular' : 'Shiny' }}</p-button>
+  <div class="buttons-container">
+    <p-button class="" (click)="toggleShiny()">Cambiar a {{ switchShiny ? 'Regular' : 'Shiny' }}</p-button>
     <p-button (click)="toggle3D()">Cambiar a {{ switch3D ? 'Normal' : '3D' }}</p-button>
     <p-button *ngIf="idMega" (click)="toggleMega()">Cambiar a {{ switchMega ? 'Normal' : 'Mega' }}</p-button>
     <p-button *ngIf="idGigant" (click)="toggleGigant()">Cambiar a {{ switchGigant ? 'Normal' : 'Gigant' }}</p-button>

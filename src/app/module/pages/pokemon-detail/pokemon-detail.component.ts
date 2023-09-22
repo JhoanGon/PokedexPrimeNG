@@ -91,7 +91,7 @@ export class PokemonDetailComponent implements OnInit {
   getAbilities(pokemons: any): any[] {
     let i = 0;
     let abilities: any[] = [];
-    while(i < pokemons.types.length){
+    while(i < pokemons.abilities.length){
       abilities.push(" " + pokemons.abilities[i].ability.name + " ");
       i ++;
     }
